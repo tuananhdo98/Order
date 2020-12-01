@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout-web :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="/moon/web/header :: header"></header>
+<div th:replace="/moon/web/header-bottom :: header-bottom"></div>
+<div class="food-menu-area bg-img pt-115 pb-90" style="background-image: url(/web/img/images)">
+    <div class="container">
+        <div class="food-menu-product-style">
+            <div class="food-menu-list text-center mb-65 nav" role="tablit">
+                <a class="active" th:href="@{/menu-list}">
+                    <h4>All Food  </h4>
+                </a>
+                <a href="#menu7" >
+                    <h4>Chicken  </h4>
+                </a>
+                <a href="#menu8" data-toggle="tab" >
+                    <h4>Beef </h4>
+                </a>
+                <a href="#menu9" data-toggle="tab" >
+                    <h4> Seafood</h4>
+                </a>
+                <a href="#menu10" data-toggle="tab" >
+                    <h4> Soup </h4>
+                </a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active show fade" id="menu1" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/1.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/2.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Ultimate Bacon Burger.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/3.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Oldtimer with Cheese.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/4.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Mix & Match Fajita Trio.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/5.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Black Bean & Veggie Fajitas.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/6.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Crispy Fiery Pepper Crispers.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="menu2" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/1.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Oldtimer with Cheese.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/2.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/3.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Crispy Fiery Pepper Crispers.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/4.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Black Bean & Veggie Fajitas.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/5.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Southern Smokehouse Burger.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/6.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="menu3" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/1.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Oldtimer with Cheese.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/2.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/3.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Crispy Fiery Pepper Crispers.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/4.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Black Bean & Veggie Fajitas.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/5.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Southern Smokehouse Burger.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/6.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="menu4" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/1.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Oldtimer with Cheese.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/2.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/3.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Crispy Fiery Pepper Crispers.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/4.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Black Bean & Veggie Fajitas.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/5.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Southern Smokehouse Burger.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/6.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="menu5" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/1.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Oldtimer with Cheese.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/2.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/3.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Crispy Fiery Pepper Crispers.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="menu-product-wrapper">
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/4.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Black Bean & Veggie Fajitas.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/5.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Southern Smokehouse Burger.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                                <div class="single-menu-product mb-30">
+                                    <div class="menu-product-img">
+                                        <img src="assets/img/product/food/6.jpg" alt="">
+                                    </div>
+                                    <div class="menu-product-content">
+                                        <h4><a href="product-details.html">Lamb Salad with Fregola.</a></h4>
+                                        <div class="menu-product-price-rating">
+                                            <div class="menu-product-price">
+                                                <span class="menu-product-old">$49.00 </span>
+                                                <span class="menu-product-new">$32.00</span>
+                                            </div>
+                                            <div class="menu-product-rating">
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                                <i class="pe-7s-star"></i>
+                                            </div>
+                                        </div>
+                                        <p>Categories: Subway, Masala, Indian</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/moon/web/footer :: footer"></footer>
+<div th:replace="/layout/layout-web :: script"></div>
+</body>
+</html>
