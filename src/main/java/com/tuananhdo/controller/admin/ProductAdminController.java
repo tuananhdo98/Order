@@ -36,7 +36,7 @@ public class ProductAdminController {
 //    }
 
     @PostMapping(value = "/save")
-    public String addProduct( @ModelAttribute(name = "product") MultipartFile file, Product product, BindingResult bindingResult) {
+    public String addProduct(@ModelAttribute(name = "product") MultipartFile file, Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "admin/addProduct";
         } else {
@@ -58,13 +58,13 @@ public class ProductAdminController {
 
     @GetMapping(value = "/editProduct/{id}")
     public String editProduct(ModelMap map, @PathVariable(name = "id") int id, ProductDTO productDTO) {
-        map.addAttribute("product", productService.getProductById(id));
-        map.addAttribute("product",productDTO);
+        productService.getProductById(id);
+        map.addAttribute("product", productDTO);
         return "admin/editProduct";
     }
 
     @PostMapping(value = "/editProduct")
-    public String editProduct(@ModelAttribute(name = "product")Product product,MultipartFile file) {
+    public String editProduct(@ModelAttribute(name = "product") Product product, MultipartFile file) {
         try {
             product.setImageUrl(file.getOriginalFilename());
             File newFile = new File("/Users/TuanAnhDo/Desktop/Order/src/main/resources/static/web/img/images/" + file.getOriginalFilename());
@@ -79,7 +79,6 @@ public class ProductAdminController {
 
         return "redirect:/admin-home";
     }
-
 
 
     @GetMapping(value = "/deleteProduct/{id}")

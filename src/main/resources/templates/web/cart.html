@@ -35,11 +35,11 @@
                                                      th:height="100px" th:width="100px" alt=""></a>
                                 </td>
                                 <td class="product-name" th:text="${item.productDTO.name}"><a href="#">Wooden Furniture </a></td>
-                                <td class="product-price-cart" th:text="${item.productDTO.price}"><span class="amount">$165.00</span></td>
+                                <td class="product-price-cart" th:text="${item.productDTO.price}"><span class="amount">$165.00</span>₫</td>
                                 <td class="product-quantity">
                                     <input value="1" type="number" th:value="${item.number}">
                                 </td>
-                                <td class="product-subtotal" th:text="${#numbers.formatCurrency(item.productDTO.price * item.number)}">$165.00</td>
+                                <td class="product-subtotal" th:text="${item.productDTO.price * item.number}">$165.00</td>
                             </tr>
                             </tbody>
                         </table>
@@ -63,7 +63,7 @@
                             <div class="cart-page-total">
                                 <h2>Cart totals</h2>
                                 <ul>
-                                    <li>Total<span th:text="${#numbers.formatCurrency(totalItem)}">100.00</span></li>
+                                    <li>Total<span th:text="${totalItem}">100.00</span></li>
                                 </ul>
                                 <a href="#">Proceed to checkout</a>
                             </div>

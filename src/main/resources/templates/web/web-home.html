@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout/layout-web :: head">
     <meta charset="UTF-8">
-    <title>Fashion</title>
+    <title>Trang chủ</title>
 
 </head>
 <body>
@@ -10,92 +10,42 @@
 <header th:replace="/moon/web/header :: header"></header>
 <div class="slider-area">
     <div class="slider-active owl-carousel">
-        <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/12.jpg)">
+        <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/banner.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
-                    <img class="animated" th:src="@{/web/img/images/6.png}" alt="">
-                    <p class="animated">Pizza được kết hợp với những hương sắc khác nhau, vị ngọt của tôm tươi mọng nước
-                        kết hợp với vị ngọt từ bò Mexico mềm đến từng lát thịt.
-
-                        Lớp phô mai Mozzarella thơm béo rải đều trên từng miếng bánh. Cắn một miếng thôi là muốn nuốt
-                        trọn cả chiếc pizza.
-
+<!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
+                    <p class="animated">
                     </p>
-                    <a class="food-slider-btn animated" th:href="@{menu-list}">Chọn món ngay</a>
+                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem ngay</a>
                 </div>
             </div>
         </div>
-        <div class="food-slider bg-img slider-height-5" style="background-image: url(/web/img/images/188.jpg)">
+        <div class="food-slider bg-img slider-height-5" style="background-image: url(/web/img/images/banner2.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
-                    <img class="animated" th:src="@{/web/img/images/6.png}" alt="">
-                    <p class="animated">Từng miếng thịt gà trắng bùi xen kẽ với những miếng nấm mỡ và hành tây vừa thơm
-                        vừa ngọt, nằm gọn trên lớp phô mai Mozzarella beo béo đi kèm với sốt Mayonnaise và Teriyaki trứ
-                        danh từ nền ẩm thực Nhật Bản!</p>
-                    <a class="food-slider-btn animated" th:href="@{menu-list}">Chọn món ngay</a>
+<!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
+                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem ngay</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- header end -->
-<!-- product area start -->
-<!-- popular product area start -->
 <div class="popular-product-area wrapper-padding-6 pt-115 pb-70 bg-img" style="background-image: url(/web)">
     <div class="container-fluid">
         <div class="section-title-10 text-center mb-85">
-            <h2>PEPPERONI FEAST </h2>
-            <p>Công thức và nguyên liệu được làm theo đúng hương vị Ý cổ điển, với những lát xúc xích Pepperoni đỏ tươi
-                kèm sốt cà chua, đối nghịch với những mảng phô mai Mozzarella vàng rượm dai dai béo ngậy, tạo ra một bữa
-                tiệc ngay trên mỗi chiếc pizza, cổ điển nhưng không nhàm chán.</p>
+            <h3 style="color: black">Pizza (Cỡ S: 6 miếng 22cm | Cỡ L: 8 miếng 30cm )</h3>
         </div>
         <div class="popular-product-wrapper">
             <div class="single-popular-product food-border-1 text-center mb-40" th:each="products : ${listProducts}">
                 <a href="#"><img th:src="@{'/images/'+${products.imageUrl}}" alt=""></a>
-                <h3><a href="product-details.html" th:text="${products.name}">Veggie Fajitas</a></h3>
-                <p th:text="${products.desciption}">Features tomatoes, garlic, oregano, and extra virgin olive oil.</p>
-                <div class="popular-product">
-                    <span th:text="${#numbers.formatCurrency(products.price)}">$23.99</span>
-                    <span class="pizza-old-price" th:text="${#numbers.formatCurrency(products.sale)}">$23.99</span>
+                <h2><a href="product-details.html" th:text="${products.name}" style="color: black ; font-size: 20px; font-weight: bold" >Veggie Fajitas</a></h2>
+                <p th:text="${products.desciption}" style="font-size: 14px; ">Features tomatoes, garlic, oregano, and extra virgin olive oil.</p>
+                <div class="popular-product" style="font-size: 20px; color: black">
+                    <span th:text="${products.price}" ></span>₫
                 </div>
                 <a class="icon-cart-furniture food-cart" th:href="@{'/cart/'+${products.id}}">
                     <i class="ti-shopping-cart"></i>
                 </a>
-            </div>
-        </div>
-        <div class="food-services-area bg-img pt-200 pb-155" style="background-image: url(/web/img/images/122.jpg)">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <div class="single-food-services text-center food-services-padding1 mb-40">
-                            <img th:src="@{/web/img/images/7.png}" alt="">
-                            <h4>Thân thiện</h4>
-                            <p>Chúng tôi mang đến sự hài lòng cho hơn 1 triệu khách hàng mỗi ngày, hơn 400 triệu bánh
-                                pizza mỗi năm.
-
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="single-food-services text-center food-services-padding2 mb-40">
-                            <img th:src="@{/web/img/images/8.png}" alt="">
-                            <h4>Chuyên nghiệp</h4>
-                            <p>Domino's Pizza có hơn 10.000 cửa hàng trên toàn thế giới tại hơn 74 quốc gia.
-
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="single-food-services text-center food-services-padding3 mb-40">
-                            <img th:src="@{/web/img/images/9.png}" alt="">
-                            <h4>Đảm bảo vệ sinh</h4>
-                            <p>Domino's Pizza đảm bảo bạn sẽ hài lòng! Pizza của bạn luôn được đảm bảo nóng giòn và thơm
-                                ngon khi được giao đến ngưỡng cửa nhà bạn, nếu không chúng tôi sẵn sàng đổi lại cho bạn!
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- services area end -->
@@ -140,7 +90,7 @@
                                                     with Fregola.</a></h4>
                                                 <div class="menu-product-price-rating">
                                                     <div class="menu-product-price">
-                                                        <span th:text="${#numbers.formatCurrency(menu.price)}">$23.99</span>
+                                                        <span th:text="${menu.price}">$23.99</span>
 <!--                                                        <span th:text="${#numbers.formatCurrency(menu.sale)}">$23.99</span>-->
                                                     </div>
                                                     <div class="menu-product-rating">
@@ -161,75 +111,6 @@
                     </div>
                     <div class="menu-btn-area text-center mt-40">
                         <a class="menu-btn btn-hover" href="menu-list.html">More Special Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- menu area end -->
-        <!-- banner area start -->
-        <div class="banner-area pt-120 pb-90">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="food-banner-wrapper mb-30">
-                            <img th:src="@{/web/img/images/32.jpg}" alt="">
-                            <div class="food-banner-content">
-                                <h3>Freash & Organic Fruits</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <a href="product-details.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="food-banner-wrapper mb-30">
-                            <img th:src="@{/web/img/images/33.jpg}" alt="">
-                            <div class="food-banner-content-2">
-                                <h3>Fluffy Vanilla Cake</h3>
-                                <p>Best Rating Cake with fruits.</p>
-                                <div class="food-banner-rating">
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                </div>
-                                <a href="product-details.html">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- banner area end -->
-        <!-- testimonial area start -->
-        <div class="testimonial-area bg-img pt-110 pb-160" style="background-image: url(/web/img/images/15.jpg)"
-             data-overlay="6">
-            <div class="container">
-                <h3>Client opinion about us</h3>
-                <div class="testimonials-active pagination-style owl-carousel">
-                    <div class="single-testimonial-3 text-center">
-                        <img src="assets/img/team/6.png" alt="">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when
-                            looking at its layout. The point of using Lorem Ipsum</p>
-                        <h4>John Doe</h4>
-                        <span>CEO of KB’s Kitchen</span>
-                    </div>
-                    <div class="single-testimonial-3 text-center">
-                        <img src="assets/img/team/6.png" alt="">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when
-                            looking at its layout. The point of using Lorem Ipsum</p>
-                        <h4>Jim Smith</h4>
-                        <span>CEO of KB’s Kitchen</span>
-                    </div>
-                    <div class="single-testimonial-3 text-center">
-                        <img src="assets/img/team/6.png" alt="">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when
-                            looking at its layout. The point of using Lorem Ipsum</p>
-                        <h4>John Doe</h4>
-                        <span>CEO of KB’s Kitchen</span>
                     </div>
                 </div>
             </div>

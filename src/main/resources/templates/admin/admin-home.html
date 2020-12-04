@@ -13,17 +13,10 @@
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
             <div class="content-header-left col-md-4 col-12 mb-2">
-                <h3 class="content-header-title">Bảng theo dõi</h3>
             </div>
             <div class="content-header-right col-md-8 col-12">
                 <div class="breadcrumbs-top float-md-right">
                     <div class="breadcrumb-wrapper mr-1">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Trang chủ</a>
-                            </li>
-                            <li class="breadcrumb-item active">Bảng quản lý
-                            </li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -58,8 +51,7 @@
                                         <img th:src="@{'/images/'+${product.imageUrl}}" width="70" height="70">
                                     </td>
                                     <td th:text="${product.name}">Name</td>
-                                    <td th:text="${#numbers.formatCurrency(product.price)}"></td>
-                                    <td th:text="${#numbers.formatCurrency(product.sale)}"></td>
+                                    <td th:text="${product.price}"></td>
                                     <td th:text="${product.desciption}">Name</td>
                                     <td>
                                         <a th:href="@{'/editProduct/'+${product.id}}"><i class="ft-rotate-cw"></i></a>
