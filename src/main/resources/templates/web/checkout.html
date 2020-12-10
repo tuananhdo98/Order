@@ -75,26 +75,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label>HỌ CỦA BẠN<span class="required">*</span></label>
-                                    <input type="text" placeholder="" th:field="*{fisrtname}" >
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="checkout-form-list">
                                     <label>TÊN CỦA BẠN<span class="required">*</span></label>
-                                    <input type="text" placeholder="" th:field="*{lastname}" >
+                                    <input type="text" placeholder="" th:field="*{nameCustomer}" >
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-form-list">
                                     <label>ĐỊA CHỈ <span class="required">*</span></label>
                                     <input type="text"  th:field="*{address}" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="checkout-form-list">
-                                    <label>EMAIL<span class="required">*</span></label>
-                                    <input type="email" th:field="*{email}" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -114,7 +102,7 @@
                             <div class="order-notes">
                                 <div class="checkout-form-list mrg-nn">
                                     <label>GHI CHÚ CHO ĐƠN HÀNG</label>
-                                    <textarea id="checkout-mess" cols="30" rows="10"  ></textarea>
+                                    <textarea id="checkout-mess" cols="30" rows="10" th:field="*{note}"  ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -149,6 +137,16 @@
                             <tfoot>
                             <tr style="color: black ">
                                 <th>Tổng đơn hàng</th>
+                                <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
+                                </td>
+                            </tr>
+                            <tr style="color: black ">
+                                <th>Phí vat (10%)</th>
+                                <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
+                                </td>
+                            </tr>
+                            <tr style="color: black ">
+                                <th>Phí ship</th>
                                 <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
                                 </td>
                             </tr>

@@ -15,7 +15,6 @@ public class LoginFailureHanler extends SimpleUrlAuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String email = request.getParameter("email");
-        System.out.println("Đăng nhập thất bại "+ email);
         String failureRedireacURL = "/login?error";
         if (exception.getMessage().contains("OTP")){
             failureRedireacURL = "/login?otp=true&email="+email;
