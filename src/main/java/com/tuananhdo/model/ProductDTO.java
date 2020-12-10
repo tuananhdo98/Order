@@ -7,11 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter
 public class ProductDTO {
 
-    private int id;
+    private Long id;
     private String name;
     private String imageUrl;
     private String desciption;
-    private int sale;
-    private int price;
+    private Double price;
     private MultipartFile file;
 }

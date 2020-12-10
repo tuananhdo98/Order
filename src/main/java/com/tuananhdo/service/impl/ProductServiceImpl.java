@@ -15,8 +15,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> finAll()
-    {
+    public List<Product> finAll() {
         return productRepository.findAll();
     }
 
@@ -27,14 +26,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(int id) {
+    public Product getProductById(long id) {
         return productRepository.findById(id).get();
     }
 
     @Override
-    public void deleteProduct(int id) {
+    public void deleteProduct(long id) {
         productRepository.deleteById(id);
-
     }
-
 }

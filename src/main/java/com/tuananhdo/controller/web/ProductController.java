@@ -1,7 +1,6 @@
 package com.tuananhdo.controller.web;
 
 import com.tuananhdo.service.ProductService;
-import com.tuananhdo.service.SpecialMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,13 +12,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private SpecialMenuService specialMenuService;
 
     @GetMapping("/")
     public String homeFood(ModelMap map){
         map.addAttribute("listProducts",productService.finAll());
-        map.addAttribute("specialMenu",specialMenuService.findAll());
         return "web/web-home";
 
     }
@@ -29,9 +25,9 @@ public class ProductController {
         return "web/login";
     }
 
-    @GetMapping("/register")
-    public String register(){
-        return "web/register";
+    @GetMapping("/403")
+    public String Eror403(){
+        return "web/403";
     }
 
     @GetMapping("/product-details")
@@ -39,19 +35,11 @@ public class ProductController {
         return "web/product-details";
     }
 
-    @GetMapping("/checkout")
-    public String checkout(){
-        return "web/checkout";
-    }
 
     @GetMapping("/menu-list")
-    public String menuList(){
+    public String menuList(ModelMap map){
+        map.addAttribute("menuList",productService.finAll());
         return "web/menu-list";
-    }
-
-    @GetMapping("/chicken")
-    public String menuChicken(){
-        return "web/menu-chicken";
     }
 
     @GetMapping("/about-us")

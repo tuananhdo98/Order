@@ -13,18 +13,18 @@
         <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/banner.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
-<!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
+                    <!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
                     <p class="animated">
                     </p>
-                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem ngay</a>
+                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem Món Ngay</a>
                 </div>
             </div>
         </div>
         <div class="food-slider bg-img slider-height-5" style="background-image: url(/web/img/images/banner2.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
-<!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
-                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem ngay</a>
+                    <!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
+                    <a class="food-slider-btn animated" th:href="@{menu-list}">Xem Món Ngay</a>
                 </div>
             </div>
         </div>
@@ -33,14 +33,18 @@
 <div class="popular-product-area wrapper-padding-6 pt-115 pb-70 bg-img" style="background-image: url(/web)">
     <div class="container-fluid">
         <div class="section-title-10 text-center mb-85">
-            <h3 style="color: black">Pizza (Cỡ S: 6 miếng 22cm | Cỡ L: 8 miếng 30cm )</h3>
+            <h3 style="color: #85bd02;">Pizza (Cỡ S: 6 miếng 22cm | Cỡ L: 8 miếng 30cm )</h3>
         </div>
         <div class="popular-product-wrapper">
-            <div class="single-popular-product food-border-1 text-center mb-40" th:each="products : ${listProducts}">
-                <a href="#"><img th:src="@{'/images/'+${products.imageUrl}}" alt=""></a>
-                <h2><a href="product-details.html" th:text="${products.name}" style="color: black ; font-size: 20px; font-weight: bold" >Veggie Fajitas</a></h2>
-                <p th:text="${products.desciption}" style="font-size: 14px; ">Features tomatoes, garlic, oregano, and extra virgin olive oil.</p>
-                <div class="popular-product" style="font-size: 20px; color: black">
+            <div class="single-popular-product food-border-1 text-center mb-40"
+                 th:each="products,count : ${listProducts}" th:unless="${count.count >3  }">
+                <a th:href="@{/product-detail{id}(id=${products.id})}"><img th:src="@{'/images/'+${products.imageUrl}}"
+                                                                            alt=""></a>
+                <h2><a href="product-details.html" th:text="${products.name}"
+                       style="color: black ; font-size: 20px; font-weight: bold">Veggie Fajitas</a></h2>
+                <p th:text="${products.desciption}" style="font-size: 14px; ">Features tomatoes, garlic, oregano, and
+                    extra virgin olive oil.</p>
+                <div class="popular-product" style="font-size: 20px; color:#85bd02;">
                     <span th:text="${products.price}" ></span>₫
                 </div>
                 <a class="icon-cart-furniture food-cart" th:href="@{'/cart/'+${products.id}}">
@@ -48,146 +52,80 @@
                 </a>
             </div>
         </div>
-        <!-- services area end -->
-        <!-- menu area start -->
-        <div class="food-menu-area bg-img pt-110 pb-120" style="background-image: url(/web/img/images/13.jpg)">
+        <div class="product-style-area pt-130 pb-30 wow fadeInUp" >
             <div class="container">
-                <div class="section-title-10 text-center mb-60">
-                    <h2>Special Menu</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the
-                        industry's standard dummy text </p>
+                <div class="section-title-furits text-center mb-95" >
+                    <h2>Tất cả sản phẩm</h2>
                 </div>
-                <div class="food-menu-product-style">
-                    <div class="food-menu-list text-center mb-65 nav" role="tablist">
-                        <a class="active" href="#menu1" data-toggle="tab" role="tab">
-                            <h4>All Food </h4>
-                        </a>
-                        <a href="#menu2" data-toggle="tab" role="tab">
-                            <h4>Chicken </h4>
-                        </a>
-                        <a href="#menu3" data-toggle="tab" role="tab">
-                            <h4>Beef </h4>
-                        </a>
-                        <a href="#menu4" data-toggle="tab" role="tab">
-                            <h4> Seafood</h4>
-                        </a>
-                        <a href="#menu5" data-toggle="tab" role="tab">
-                            <h4> Soup </h4>
-                        </a>
-                    </div>
-                    <div class="tab-content">
-                        <div class="tab-pane active show fade" id="menu1" role="tabpanel">
-                            <div class="row">
-                                <div class="col-lg-6" th:each="menu : ${specialMenu}">
-                                    <div class="menu-product-wrapper" >
-                                        <div class="single-menu-product mb-30">
-                                            <div class="menu-product-img">
-                                                <img th:src="@{'/images/'+${menu.imageUrl}}" alt="">
-                                            </div>
-                                            <div class="menu-product-content">
-                                                <h4><a href="product-details.html" th:text="${menu.name}">Lamb Salad
-                                                    with Fregola.</a></h4>
-                                                <div class="menu-product-price-rating">
-                                                    <div class="menu-product-price">
-                                                        <span th:text="${menu.price}">$23.99</span>
-<!--                                                        <span th:text="${#numbers.formatCurrency(menu.sale)}">$23.99</span>-->
-                                                    </div>
-                                                    <div class="menu-product-rating">
-                                                        <i class="pe-7s-star"></i>
-                                                        <i class="pe-7s-star"></i>
-                                                        <i class="pe-7s-star"></i>
-                                                        <i class="pe-7s-star"></i>
-                                                        <i class="pe-7s-star"></i>
-                                                    </div>
-<!--                                                    <p th:text="${menu.categories}"></p>-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="row">
+                    <div class="col-lg-4 col-xl-3 col-md-6" th:each="products : ${listProducts}" style="color: #85bd02;">
+                        <div class="product-fruit-wrapper mb-60">
+                            <div class="product-fruit-img" >
+                                <img th:src="@{'/images/'+${products.imageUrl}}" alt="">
+                                <div class="product-furit-action">
+                                    <a class="furit-animate-left" title="Add To Cart" th:href="@{'/cart/'+${products.id}}">
+                                        <i class="pe-7s-cart"></i>
+                                    </a>
+                                    <a class="furit-animate-right" title="Wishlist" href="#">
+                                        <i class="pe-7s-like"></i>
+                                    </a>
                                 </div>
                             </div>
+                            <div class="product-fruit-content text-center">
+                                <h4><a href="product-details.html" th:text="${products.name}" th:href="@{/product-detail{id}(id=${products.id})}">Pinapple Freash</a></h4>
+                                <span th:text="${products.price}" th:href="@{/product-detail{id}(id=${products.id})}">$20.99</span> ₫
+                            </div>
                         </div>
-                    </div>
-                    <div class="menu-btn-area text-center mt-40">
-                        <a class="menu-btn btn-hover" href="menu-list.html">More Special Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial area end -->
-        <!-- special food area start -->
-        <div class="special-food-area wrapper-padding-7 pt-115 pb-115">
-            <div class="container">
-                <div class="section-title-10 text-center mb-65">
-                    <h2>Special Foods</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the
-                        industry's standard dummy text </p>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="special-food-active owl-carousel">
-                    <div class="single-special-food">
-                        <a href="#"><img th:src="@{/web/img/images/8.jpg}" alt=""></a>
-                        <div class="special-food-content text-center">
-                            <h4><a href="product-details.html">Chicken Nugget</a></h4>
-                            <p>Chicken meat which is breaded or battered, then deep-fried or baked.</p>
-                            <span>$50.00</span>
-                        </div>
-                    </div>
-                    <div class="single-special-food">
-                        <img th:src="@{/web/img/images/9.jpg}" alt="">
-                        <a href="#"></a>
-                        <div class="special-food-content text-center">
-                            <h4><a href="product-details.html">Ultimate Bacon Burger</a></h4>
-                            <p>Chicken meat which is breaded or battered, then deep-fried or baked.</p>
-                            <span>$50.00</span>
-                        </div>
-                    </div>
-                    <div class="single-special-food">
-                        <a href="#">
-                            <img th:src="@{/web/img/images/9.jpg}" alt=""></a>
-                        <div class="special-food-content text-center">
-                            <h4><a href="product-details.html">Oldtimer with Cheese</a></h4>
-                            <p>Chicken meat which is breaded or battered, then deep-fried or baked.</p>
-                            <span>$50.00</span>
-                        </div>
-                    </div>
-                    <div class="single-special-food">
-                        <a href="#"><img th:src="@{/web/img/images/9.jpg}" alt=""></a>
-                        <div class="special-food-content text-center">
-                            <h4><a href="product-details.html"> Match Fajita Trio</a></h4>
-                            <p>Chicken meat which is breaded or battered, then deep-fried or baked.</p>
-                            <span>$50.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- special food area end -->
-        <div class="brand-logo-area-3 wrapper-padding-7 ptb-120 bg-img" style="background-image: url(/web)">
-            <div class="container-fluid">
-                <div class="brand-logo-active3 owl-carousel">
-                    <div class="single-brand">
-                        <img th:src="@{/web/img/images/14.png}" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img th:src="@{/web/img/images/15.png}" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img th:src="@{/web/img/images/16.png}" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img th:src="@{/web/img/images/17.png}" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img th:src="@{/web/img/images/18.png}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- Testimonial area end -->
+<!-- special food area start -->
+<div class="special-food-area wrapper-padding-7 pt-115 pb-115">
+    <div class="container">
+        <div class="section-title-10 text-center mb-65">
+            <h2>Sản phẩm khác</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="special-food-active owl-carousel">
+            <div class="single-special-food" th:each="menu2,count : ${listProducts}">
+                <a  th:href="@{/product-detail{id}(id=${menu2.id})}"><img th:src="@{'/images/'+${menu2.imageUrl}}" alt=""></a>
+                <div class="special-food-content text-center"
+                     style="color:#85bd02; font-weight: bold ; font-size: 20px;">
+                    <h4><a href="product-details.html" th:text="${menu2.name}" th:href="@{/product-detail{id}(id=${menu2.id})}"  >Chicken Nugget</a></h4>
+                    <span style="color:#85bd02;" th:text="${menu2.price}" th:href="@{/product-detail{id}(id=${menu2.id})}">$50.00</span> ₫
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- special food area end -->
+<div class="brand-logo-area-3 wrapper-padding-7 ptb-120 bg-img" style="background-image: url(/web)">
+    <div class="container-fluid">
+        <div class="brand-logo-active3 owl-carousel">
+            <div class="single-brand">
+                <img th:src="@{/web/img/images/14.png}" alt="">
+            </div>
+            <div class="single-brand">
+                <img th:src="@{/web/img/images/15.png}" alt="">
+            </div>
+            <div class="single-brand">
+                <img th:src="@{/web/img/images/16.png}" alt="">
+            </div>
+            <div class="single-brand">
+                <img th:src="@{/web/img/images/17.png}" alt="">
+            </div>
+            <div class="single-brand">
+                <img th:src="@{/web/img/images/18.png}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 <footer th:replace="/moon/web/footer :: footer"></footer>
 <div th:replace="/layout/layout-web :: script"></div>

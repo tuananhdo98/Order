@@ -1,7 +1,6 @@
 package com.tuananhdo.service;
 
 import com.tuananhdo.entity.Product;
-import com.tuananhdo.entity.SpecialMenu;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,9 @@ public interface ProductService {
 
     void saveProduct(Product product);
 
-    Product getProductById(int id);
+    Product getProductById(long id);
 
-    void deleteProduct(int id);
+    void deleteProduct(long id);
+
+//    Iterator<Product> saveAllProduct(Product product);
 }

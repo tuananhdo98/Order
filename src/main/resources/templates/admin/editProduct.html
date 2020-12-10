@@ -11,16 +11,11 @@
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
-            <div class="content-header-left col-md-4 col-12 mb-2">
-                <h3 class="content-header-title" style="color: pink;">Bootstrap Cards</h3>
-            </div>
             <div class="content-header-right col-md-8 col-12">
                 <div class="breadcrumbs-top float-md-right">
                     <div class="breadcrumb-wrapper mr-1">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a th:href="@{/}">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active">Cards
                             </li>
                         </ol>
                     </div>
@@ -32,7 +27,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body" >
-                                    <h4 class="card-title">Edit Product</h4>
+                                    <h4 class="card-title">Sửa sản phẩm</h4>
                                 </div>
                                 <div class="card-body">
                                     <form class="form" th:action="@{/editProduct}" method="post" th:object="${product}" enctype="multipart/form-data">
@@ -42,16 +37,16 @@
                                                 <input type="text"  class="form-control" placeholder="Name" th:field="*{id}" readonly="readonly">
                                             </div>
                                             <div class="form-group">
-                                                <label >Name</label>
-                                                <input type="text" id="donationinput1" class="form-control" placeholder="Name" th:field="*{name}">
+                                                <label >Tên</label>
+                                                <input type="text" id="donationinput1" class="form-control" placeholder="Tên" th:field="*{name}">
                                             </div>
                                             <div class="form-group">
-                                                <label  >Price</label>
+                                                <label >Giá</label>
                                                 <input type="text" class="form-control"  th:field="*{price}">
                                             </div>
                                             <div class="form-group">
-                                                <label >Description</label>
-                                                <input type="text"  class="form-control" placeholder="Description" th:field="*{desciption}">
+                                                <label >Mô tả</label>
+                                                <input type="text"  class="form-control" placeholder="Mô tả" th:field="*{desciption}">
                                             </div>
                                             <div class="form-group">
                                                 <label >File</label>
@@ -59,7 +54,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions center">
-                                            <button type="submit" class="btn btn-outline-primary">Save</button>
+                                            <button type="submit" class="btn btn-outline-primary">Sửa sản phẩm</button>
                                         </div>
                                     </form>
                                 </div>
@@ -67,7 +62,6 @@
 
                         </div>
                     </div>
-            </section>
     </div>
 </div>
 

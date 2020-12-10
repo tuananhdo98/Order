@@ -32,7 +32,7 @@ public class CartController {
         if (session.getAttribute("cart")==null){
             OrderDTO orderDTO = new OrderDTO();
             OrderItemDTO orderItemDTO = new OrderItemDTO();
-            orderItemDTO.setNumber(1);
+            orderItemDTO.setNumber((long) 1);
             orderItemDTO.setProductDTO(product);
             List<OrderItemDTO> orderItemDTOS = new ArrayList<>();
             orderItemDTOS.add(orderItemDTO);
@@ -50,7 +50,7 @@ public class CartController {
             }
             if (!checkItem){
                 OrderItemDTO orderItemDTO = new OrderItemDTO();
-                orderItemDTO.setNumber(1);
+                orderItemDTO.setNumber((long) 1);
                 orderItemDTO.setProductDTO(product);
                 orderItemDTOS.add(orderItemDTO);
                 session.setAttribute("cart",orderDTO);
@@ -65,7 +65,7 @@ public class CartController {
             OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
             session.setAttribute("order", orderDTO);
         }
-        return "redirect:/cart";
+        return "web/cart";
     }
 
     @GetMapping(value = "/removeCart/{productId}")
@@ -80,7 +80,7 @@ public class CartController {
     }
 
 
-    private long totalItem(HttpSession session) {
+    public static long totalItem(HttpSession session) {
         OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
         List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
         long totalItem = 0;

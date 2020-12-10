@@ -13,16 +13,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
             <div class="collapse navbar-collapse show" id="navbar-mobile">
                 <ul class="nav navbar-nav mr-auto float-left">
                     <li class="nav-item d-block d-md-none"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
                     <li class="nav-item dropdown navbar-search"><a class="nav-link dropdown-toggle hide" data-toggle="dropdown" href="#"><i class="ficon ft-search"></i></a>
                         <ul class="dropdown-menu">
                             <li class="arrow_box">
                                 <form>
                                     <div class="input-group search-box">
-                                        <div class="position-relative has-icon-right full-width">
-                                            <input class="form-control" id="search" type="text" placeholder="Search here...">
+                                            <input class="form-control" id="search" type="text" placeholder="Tìm kiếm...">
                                             <div class="form-control-position navbar-search-close"><i class="ft-x">   </i></div>
-                                        </div>
                                     </div>
                                 </form>
                             </li>
@@ -49,7 +46,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
                                 <a class="dropdown-item" href="#">
                                     <span class="avatar avatar-online"><img th:src="@{/admin/images/portrait/medium/a1.png}" alt="avatar">
                               <span class="user-name text-bold-700 ml-1" >Tuan Anh</span></span></a>
-                                <div class="dropdown-divider"></div><a class="dropdAdminown-item" href="#"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a><a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a><a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" th:href="@{/}"><i class="ft-power"></i> Thoát</a>
                             </div>
                         </div>

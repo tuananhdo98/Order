@@ -26,10 +26,13 @@
                 <div class="login">
                     <div class="login-form-container">
                         <div class="login-form">
-                            <form action="#" method="post">
-                                <input type="text" name="user-name" placeholder="Số điện thoại">
+                            <form th:action="@{/registerPost}" th:object="${user}" method="post">
+                                <input type="text" name="user-name" placeholder="Họ" th:field="*{fisrtname}">
+                                <input type="text" name="user-name" placeholder="Tên" th:field="*{lastname}">
+                                <input type="email" name="user-name" placeholder="Email" th:field="*{email}">
+                                <input type="password" name="password" placeholder="Mật khẩu" th:field="*{password}">
                                 <div class="button-box">
-                                    <button type="submit" class="default-btn floatright">Tiếp tục</button>
+                                    <button type="submit" class="default-btn floatright">Tạo tài khoản</button>
                                 </div>
                             </form>
                         </div>
