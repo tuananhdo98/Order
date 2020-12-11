@@ -4,30 +4,32 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
-public class OrderProduct {
+public class OrderProduct implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_id")
     private Long id;
-    private String nameOrder;
-    private String nameCustomer;
     private Date dateOrder;
-    private String address;
+    private String nameOrder;
+    private String getImg;
+    private String nameUserOrder;
     private String phoneNumber;
-    private Double priceOrder;
+    private String addressOrder;
+    private String noteOrder;
     private Double shiping;
     private Double vat;
-    private String note;
     private Boolean status;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<OrderDetails> orderDetails;
-
-
+    private Integer intoMoney;
+    private Integer totalOrder;
+    private Long totalNumber;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetails> orderDetails;
 }

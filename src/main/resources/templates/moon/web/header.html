@@ -40,12 +40,12 @@
                                 </li>
                                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Đăng xuất</a>
                                 </li>
-                                <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/admin-home}">Quản lý</a></li>
+                                <li ><a th:href="@{/admin-home}">Quản lý</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="header-cart">
-                        <a class="icon-cart-furniture food-cart" href="#">
+                        <a class="icon-cart-furniture food-cart" th:href="@{/cart}">
                             <i class="ti-shopping-cart"></i>
                             <span class="shop-count-furniture green">02</span>
                         </a>

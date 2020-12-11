@@ -1,8 +1,6 @@
 package com.tuananhdo.configuration;
 
-import com.tuananhdo.security.BeforeAuthenticationFilter;
 import com.tuananhdo.security.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,10 +21,9 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().
                 authorizeRequests()
-                .antMatchers("/admin-home/**").hasAuthority("ADMIN")
+                .antMatchers("/admin-home/**").permitAll()
                 .anyRequest().permitAll()
-                .and().
-                addFilterBefore(beforeAuthenticationFilter,BeforeAuthenticationFilter.class)
+                .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
@@ -37,20 +34,18 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403").and()
-                .rememberMe()
-                .key("cxzcDKASOmczx8423ma0981558607").tokenValiditySeconds(1236000);
-
+                .rememberMe();
 
     }
 
-    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+//    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+//    @Override
+//    public AuthenticationManager authenticationManagerBean() throws Exception {
+//        return super.authenticationManagerBean();
+//    }
 
-    @Autowired
-    private BeforeAuthenticationFilter beforeAuthenticationFilter;
+//    @Autowired
+//    private BeforeAuthenticationFilter beforeAuthenticationFilter;
 
     @Bean
     public UserDetailsService userDetailsService(){

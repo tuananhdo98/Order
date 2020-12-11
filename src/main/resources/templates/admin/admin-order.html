@@ -23,10 +23,13 @@
                             <table class="table">
                                 <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Đơn hàng</th>
+                                    <th scope="col">Mã đơn hàng</th>
                                     <th scope="col">Ngày đặt</th>
-                                    <th scope="col">Sản phẩm</th>
                                     <th scope="col">Tên khách đặt</th>
+                                    <th scope="col">Sản phẩm</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Thành tiền</th>
                                     <th scope="col">Tổng tiền</th>
                                     <th scope="col">Chức năng</th>
                                 </tr>
@@ -34,10 +37,15 @@
                                 <tbody>
                                 <tr th:each="userOrder : ${userOrder}">
                                     <td th:text="${userOrder.id}">Id</td>
-                                    <td th:text="${userOrder.dateOrder}">Name</td>
+                                    <td th:text="${#calendars.format(userOrder.dateOrder, 'dd/MM/yyyy HH:mm')}">Name</td>
+                                    <td th:text="${userOrder.nameUserOrder}"></td>
+                                    <td>
+                                        <img th:src="@{'/images/'+${userOrder.getImg}}" width="100px" height="80px">
+                                    </td>
                                     <td th:text="${userOrder.nameOrder}"></td>
-                                    <td th:text="${userOrder.nameCustomer}"></td>
-                                    <td th:text="${userOrder.priceOrder}"></td>
+                                    <td th:text="${userOrder.totalNumber}"></td>
+                                    <td th:text="${userOrder.intoMoney} +  '₫'"></td>
+                                    <td th:text="${userOrder.totalOrder} + '₫'"></td>
                                     <td>
                                         <a th:href="@{'/admin-deleteOrder/'+${userOrder.id}}"><i  style="color: black;">Xoá đơn hàng</i></a>
                                     </td>

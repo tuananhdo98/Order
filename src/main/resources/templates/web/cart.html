@@ -64,7 +64,7 @@
                             <div class="cart-page-total">
                                 <ul>
                                     <li>Tổng cộng
-                                        <span th:text="${totalItem}">100.00</span></li>
+                                        <span th:text="${totalItem} +  '₫'">100.00</span></li>
                                 </ul>
                                 <a th:href="@{/}">Tiếp tục đặt món</a>
                                 <a th:href="@{/checkout}">Thanh toán</a>

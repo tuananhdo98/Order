@@ -12,7 +12,7 @@ public interface UserService {
 
     User getUserByEmail(String email);
 
-    void clearOTP( User user);
-
-    void generateOneTimePassword(User user) throws UnsupportedEncodingException, MessagingException;
+//    void clearOTP( User user);
+//
+//    void generateOneTimePassword(User user) throws UnsupportedEncodingException, MessagingException;
 }

@@ -20,9 +20,9 @@ public class MyUserDetails implements UserDetails {
     }
 
 
-    public User getMyUserDetail(){
-        return this.user;
-    }
+//    public User getMyUserDetail(){
+//        return this.user;
+//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -37,9 +37,9 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        if (user.isOTPRequired()){
-            return user.getOneTimePassword();
-        }
+//        if (user.isOTPRequired()){
+//            return user.getOneTimePassword();
+//        }
         return user.getPassword();
     }
 

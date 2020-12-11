@@ -11,6 +11,6 @@ public class ProductDTO {
     private String name;
     private String imageUrl;
     private String desciption;
-    private Double price;
+    private Integer price;
     private MultipartFile file;
 }

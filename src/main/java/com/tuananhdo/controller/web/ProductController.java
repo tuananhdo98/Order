@@ -20,16 +20,6 @@ public class ProductController {
 
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "web/login";
-    }
-
-    @GetMapping("/403")
-    public String Eror403(){
-        return "web/403";
-    }
-
     @GetMapping("/product-details")
     public String details(){
         return "web/product-details";
