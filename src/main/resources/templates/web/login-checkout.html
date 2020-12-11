@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout-web :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="/moon/web/header :: header"></header>
+<div th:replace="/moon/web/header-bottom :: header-bottom"></div>
+<div class="breadcrumb-area pt-205 pb-210" style="background-image: url(web/img/images/15.jpg)">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <h2>Đăng nhập</h2>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a th:href="@{/register}">Đăng ký</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- login-area start -->
+<div class="register-area ptb-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-12 col-lg-6 col-xl-6 ml-auto mr-auto">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-form">
+                            <form th:action="@{/login}" method="post">
+                                <div th:if="${param.error}">
+                                    <div class="alert alert-danger">Sai tài khoản hoặc mật khẩu ?
+                                    </div>
+                                </div>
+                                <input type="email" name="email" placeholder="Email">
+                                <input type="password" name="password">
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" name="remember-me">
+                                        <label>Nhớ tài khoản</label>
+                                        <a href="#">Quên mật khẩu?</a></div>
+                                    <a th:href="@{/register}">Bạn chưa có tài khoản?</a></br>
+                                    <button type="submit" class="default-btn floatright">Đăng nhập</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <h4 style="color: #85bd02;"><a th:href="@{/login-checkout}"> Mua hàng không cần đăng ký </a></h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/moon/web/footer :: footer"></footer>
+</body>
+</html>
