@@ -33,6 +33,22 @@ public class UserServiceimpl implements UserService {
 //        sendOTPEmail(user,OTP);
 //    }
 
+
+    @Override
+    public void deleteUser(long id) {
+         userRepository.deleteById(id);
+    }
+
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getUserById(long id) {
+        return userRepository.findById(id).get();
+    }
+
 //    private void sendOTPEmail(User user, String otp) throws UnsupportedEncodingException, MessagingException {
 //        MimeMessage message = mailSender.createMimeMessage();
 //        MimeMessageHelper helper = new MimeMessageHelper(message);

@@ -136,18 +136,18 @@
                             </tbody>
                             <tfoot>
                             <tr style="color: black ">
-                                <th>Tổng đơn hàng</th>
-                                <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
-                                </td>
-                            </tr>
-                            <tr style="color: black ">
                                 <th>Phí vat (10%)</th>
-                                <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
+                                <td><span class="amount" th:text="${VAT}" >10000₫</span> ₫
                                 </td>
                             </tr>
                             <tr style="color: black ">
                                 <th>Phí ship</th>
-                                <td><span class="amount" th:text="${totalItem}" >£215.00</span> ₫
+                                <td><span class="amount" th:text="${shiping}" >£215.00</span> ₫
+                                </td>
+                            </tr>
+                            <tr style="color: black ">
+                                <th>Tổng đơn hàng</th>
+                                <td><span class="amount" th:text="${totalOrder}" >£215.00</span> ₫
                                 </td>
                             </tr>
                             </tfoot>

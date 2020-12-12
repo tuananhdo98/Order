@@ -27,13 +27,17 @@ public class CheckOutController {
     private OrderDetailsService orderDetailsService;
 
     @GetMapping(value = "/checkout")
-    public String cart(Authentication authentication, ModelMap map,HttpSession session,OrderDetails orderDetails) {
+    public String cart(Authentication authentication, ModelMap map, HttpSession session) {
+        map.put("VAT", VAT(session));
         map.put("totalItem", CartController.totalItem(session));
+        map.put("shiping", Shiping());
+        map.put("totalOrder",totalItemOrder(session));
         if (authentication == null) {
             return "web/login-checkout";
-        } else {
-        map.addAttribute("orderProduct", new OrderProduct());
-        return "web/checkout";
+        }
+        else {
+            map.addAttribute("orderProduct", new OrderProduct());
+            return "web/checkout";
         }
     }
 
@@ -55,7 +59,7 @@ public class CheckOutController {
                 orderService.save(orderProduct);
                 OrderDetails orderDetails = new OrderDetails();
                 orderDetails.setId(orderItemDTO.getProductDTO().getId());
-                orderDetails.setNumberDetails(orderItemDTO.getNumber());
+//                orderDetails.setNumberDetails(orderItemDTO.getNumber());
                 orderDetailsService.save(orderDetails);
             }
             session.removeAttribute("cart");
@@ -63,5 +67,29 @@ public class CheckOutController {
         return "web/checksuccess";
     }
 
+
+    public static long VAT(HttpSession session) {
+        OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
+        List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
+        long VAT = 0;
+        for (OrderItemDTO orderItemDTO : orderItemDTOS) {
+            VAT += orderItemDTO.getNumber() * orderItemDTO.getProductDTO().getPrice() / 10;
+        }
+        return VAT;
+    }
+
+    public static long Shiping() {
+        return 40000;
+    }
+
+    public static long totalItemOrder(HttpSession session) {
+        OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
+        List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
+        long totalItem = 0;
+        for (OrderItemDTO orderItemDTO : orderItemDTOS){
+            totalItem += orderItemDTO.getNumber() * orderItemDTO.getProductDTO().getPrice() + Shiping() + VAT(session);
+        }
+        return totalItem;
+    }
 
 }

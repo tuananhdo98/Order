@@ -13,6 +13,6 @@ public class OrderDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Double totalDetails;
-    private Long numberDetails;
+//    private Double totalDetails;
+//    private Long numberDetails;
 }

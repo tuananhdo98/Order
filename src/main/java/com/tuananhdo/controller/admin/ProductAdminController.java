@@ -57,8 +57,8 @@ public class ProductAdminController {
 
 
     @GetMapping(value = "/editProduct/{id}")
-    public String editProduct(ModelMap map, @PathVariable(name = "id") int id, ProductDTO productDTO) {
-        productService.getProductById(id);
+    public String editProduct(ModelMap map, @PathVariable(name = "id") int id,ProductDTO productDTO) {
+        map.addAttribute("product", productService.getProductById(id));
         map.addAttribute("product", productDTO);
         return "admin/editProduct";
     }

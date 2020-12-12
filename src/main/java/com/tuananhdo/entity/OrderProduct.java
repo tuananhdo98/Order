@@ -30,6 +30,6 @@ public class OrderProduct implements Serializable {
     private Integer intoMoney;
     private Integer totalOrder;
     private Long totalNumber;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<OrderDetails> orderDetails;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<OrderDetails> orderDetails;
 }

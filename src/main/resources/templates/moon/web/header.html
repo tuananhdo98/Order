@@ -40,7 +40,7 @@
                                 </li>
                                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Đăng xuất</a>
                                 </li>
-                                <li ><a th:href="@{/admin-home}">Quản lý</a></li>
+                                <li sec:authorize="hasAnyAuthority('ADMIN','ASSISTANT')" ><a th:href="@{/admin-home}">Quản lý</a></li>
                             </ul>
                         </nav>
                     </div>

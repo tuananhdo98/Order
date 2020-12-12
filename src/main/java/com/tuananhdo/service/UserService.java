@@ -12,6 +12,12 @@ public interface UserService {
 
     User getUserByEmail(String email);
 
+    void deleteUser(long id);
+
+    void saveUser(User user);
+
+    User getUserById(long id);
+
 //    void clearOTP( User user);
 //
 //    void generateOneTimePassword(User user) throws UnsupportedEncodingException, MessagingException;
