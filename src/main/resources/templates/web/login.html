@@ -27,19 +27,19 @@
                     <div class="login-form-container">
                         <div class="login-form">
                             <form th:action="@{/login}" method="post">
-                                <div th:if="${param.otp}">
-                                    <div class="alert alert-danger">
-                                        Chúng tôi đã gửi cho bạn 1 mã OTP về gmail vui lòng kiểm tra email : [[${param.email}]]
-                                        của bạn !
-                                        Mã có hiệu lực trong 5 phút !
-                                    </div>
-                                </div>
+<!--                                <div th:if="${param.otp}">-->
+<!--&lt;!&ndash;                                    <div class="alert alert-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        Chúng tôi đã gửi cho bạn 1 mã OTP về gmail vui lòng kiểm tra email : [[${param.email}]]&ndash;&gt;-->
+<!--&lt;!&ndash;                                        của bạn !&ndash;&gt;-->
+<!--&lt;!&ndash;                                        Mã có hiệu lực trong 5 phút !&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                </div>-->
                                 <div th:if="${param.error}">
                                     <div class="alert alert-danger">Sai tài khoản hoặc mật khẩu ?
                                     </div>
                                 </div>
                                 <input type="email" name="email" placeholder="Email">
-                                <input type="password" name="password">
+                                <input type="password" name="password" placeholder="Password">
                                 <div class="button-box">
                                     <div class="login-toggle-btn">
                                         <input type="checkbox" name="remember-me">

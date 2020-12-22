@@ -2,6 +2,7 @@ package com.tuananhdo.controller.admin;
 
 import com.tuananhdo.entity.Product;
 import com.tuananhdo.model.ProductDTO;
+import com.tuananhdo.model.SizeCake;
 import com.tuananhdo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -36,28 +38,24 @@ public class ProductAdminController {
 //    }
 
     @PostMapping(value = "/save")
-    public String addProduct(@ModelAttribute(name = "product") MultipartFile file, Product product, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "admin/addProduct";
-        } else {
-            try {
-                product.setImageUrl(file.getOriginalFilename());
-                File newFile = new File("/Users/TuanAnhDo/Desktop/Order/src/main/resources/static/web/img/images/" + file.getOriginalFilename());
-                FileOutputStream fileOutputStream = new FileOutputStream(newFile);
-                fileOutputStream.write(file.getBytes());
-                fileOutputStream.close();
+    public String addProduct(@ModelAttribute(name = "product") Product product, MultipartFile file,SizeCake sizeCake) {
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            productService.saveProduct(product);
+        try {
+            product.setImageUrl(file.getOriginalFilename());
+            File newFile = new File("/Users/TuanAnhDo/Documents/Order/src/main/resources/static/web/img/images/" + file.getOriginalFilename());
+            FileOutputStream fileOutputStream = new FileOutputStream(newFile);
+            fileOutputStream.write(file.getBytes());
+            fileOutputStream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        productService.saveProduct(product);
         return "redirect:/admin-home";
     }
 
-
     @GetMapping(value = "/editProduct/{id}")
-    public String editProduct(ModelMap map, @PathVariable(name = "id") int id,ProductDTO productDTO) {
+    public String editProduct(ModelMap map, @PathVariable(name = "id") int id, ProductDTO productDTO) {
         map.addAttribute("product", productService.getProductById(id));
         map.addAttribute("product", productDTO);
         return "admin/editProduct";
@@ -67,7 +65,7 @@ public class ProductAdminController {
     public String editProduct(@ModelAttribute(name = "product") Product product, MultipartFile file) {
         try {
             product.setImageUrl(file.getOriginalFilename());
-            File newFile = new File("/Users/TuanAnhDo/Desktop/Order/src/main/resources/static/web/img/images/" + file.getOriginalFilename());
+            File newFile = new File("/Users/TuanAnhDo/Documents/Order/src/main/resources/static/web/img/images/" + file.getOriginalFilename());
             FileOutputStream fileOutputStream = new FileOutputStream(newFile);
             fileOutputStream.write(file.getBytes());
             fileOutputStream.close();

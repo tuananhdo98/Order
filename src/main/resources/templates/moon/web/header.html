@@ -27,7 +27,7 @@
                                         <li><a th:href="@{/}">Cửa hàng</a></li>
                                         <li><a th:href="@{/register}">Đăng ký</a></li>
                                         <li><a th:href="@{/}">Hỗ trợ khách hàng</a></li>
-                                        <li><a th:href="@{/checkout}">Kiểm tra đơn hàng</a></li>
+                                        <li><a th:href="@{/findOrderPhone}">Kiểm tra đơn hàng</a></li>
                                         <li><a href="wishlist.html">Holine đặt hàng / 19006868</a></li>
                                     </ul>
                                 </li>
@@ -40,14 +40,15 @@
                                 </li>
                                 <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Đăng xuất</a>
                                 </li>
-                                <li sec:authorize="hasAnyAuthority('ADMIN','ASSISTANT')" ><a th:href="@{/admin-home}">Quản lý</a></li>
+<!--                                <li sec:authorize="hasAnyAuthority('ADMIN','ASSISTANT')" ><a th:href="@{/admin-home}">Quản lý</a></li>-->
+                                <li ><a th:href="@{/admin-home}">Quản lý</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="header-cart">
                         <a class="icon-cart-furniture food-cart" th:href="@{/cart}">
                             <i class="ti-shopping-cart"></i>
-                            <span class="shop-count-furniture green">02</span>
+<!--                            <span class="shop-count-furniture green"></span>-->
                         </a>
 <!--                        <ul class="cart-dropdown" th:each="cartMenu : ${session.cart.itemDTOS}">-->
 <!--                            <li class="single-product-cart">-->

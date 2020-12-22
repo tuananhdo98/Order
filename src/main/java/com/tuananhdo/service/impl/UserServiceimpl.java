@@ -15,10 +15,7 @@ public class UserServiceimpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public User getUserByEmail(String email) {
-        return userRepository.getUserByEmail(email);
-    }
+
 
 //    @Override
 //    public void generateOneTimePassword(User user) throws UnsupportedEncodingException, MessagingException {
@@ -40,8 +37,9 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) {
-        userRepository.save(user);
+    public User saveUser(User user) {
+
+        return userRepository.save(user);
     }
 
     @Override

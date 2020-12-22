@@ -1,5 +1,6 @@
 package com.tuananhdo.controller.web;
 
+import com.tuananhdo.model.SizeCake;
 import com.tuananhdo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,10 @@ public class ProductDetailController {
     private ProductService productService;
 
     @GetMapping("/product-detail{id}")
-    public String productDetails(ModelMap map, @PathVariable("id") int productId){
-        map.addAttribute("product",productService.getProductById(productId));
-        map.addAttribute("products",productService.finAll());
+    public String productDetails(ModelMap map, @PathVariable("id") int productId) {
+        map.addAttribute("product", productService.getProductById(productId));
+        map.addAttribute("products", productService.finAll());
+        map.addAttribute("size", SizeCake.values());
         return "web/product-details";
     }
 }

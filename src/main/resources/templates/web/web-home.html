@@ -10,7 +10,7 @@
 <header th:replace="/moon/web/header :: header"></header>
 <div class="slider-area">
     <div class="slider-active owl-carousel">
-        <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/banner.jpg)">
+        <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/homepage.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
                     <!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="food-slider bg-img slider-height-5" style="background-image: url(/web/img/images/banner2.jpg)">
+        <div class="food-slider bg-img slider-height-5" style="background-image: url(web/img/images/banner-home-vn.jpg)">
             <div class="container">
                 <div class="food-slider-content text-center fadeinup-animated">
                     <!--                    <img class="animated" th:src="@{/web/img/images/banner.jpg}" alt="">-->
@@ -33,7 +33,6 @@
 <div class="popular-product-area wrapper-padding-6 pt-115 pb-70 bg-img" style="background-image: url(/web)">
     <div class="container-fluid">
         <div class="section-title-10 text-center mb-85">
-            <h3 style="color: #85bd02;">Pizza (Cỡ S: 6 miếng 22cm | Cỡ L: 8 miếng 30cm )</h3>
         </div>
         <div class="popular-product-wrapper">
             <div class="single-popular-product food-border-1 text-center mb-40"
@@ -45,7 +44,7 @@
                 <p th:text="${products.desciption}" style="font-size: 14px; ">Features tomatoes, garlic, oregano, and
                     extra virgin olive oil.</p>
                 <div class="popular-product" style="font-size: 20px; color:#85bd02;">
-                    <span th:text="${products.price}" ></span>₫
+                    <span th:text="${#numbers.formatDecimal(products.price,0,'POINT',0,'DEFAULT') + '₫'}" ></span>
                 </div>
                 <a class="icon-cart-furniture food-cart" th:href="@{'/cart/'+${products.id}}">
                     <i class="ti-shopping-cart"></i>
@@ -73,7 +72,8 @@
                             </div>
                             <div class="product-fruit-content text-center">
                                 <h4><a href="product-details.html" th:text="${products.name}" th:href="@{/product-detail{id}(id=${products.id})}">Pinapple Freash</a></h4>
-                                <span th:text="${products.price}" th:href="@{/product-detail{id}(id=${products.id})}">$20.99</span> ₫
+                                <span th:text="${#numbers.formatDecimal(products.price,0,'POINT',0,'DEFAULT') + '₫'}"
+                                      th:href="@{/product-detail{id}(id=${products.id})}">$20.99</span>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                 <div class="special-food-content text-center"
                      style="color:#85bd02; font-weight: bold ; font-size: 20px;">
                     <h4><a href="product-details.html" th:text="${menu2.name}" th:href="@{/product-detail{id}(id=${menu2.id})}"  >Chicken Nugget</a></h4>
-                    <span style="color:#85bd02;" th:text="${menu2.price}" th:href="@{/product-detail{id}(id=${menu2.id})}">$50.00</span> ₫
+                    <span style="color:#85bd02;" th:text="${#numbers.formatDecimal(menu2.price,0,'POINT',0,'DEFAULT') +  '₫'}" th:href="@{/product-detail{id}(id=${menu2.id})}">$50.00</span>
                 </div>
             </div>
         </div>

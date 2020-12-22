@@ -77,31 +77,29 @@
                                 <div class="checkout-form-list">
                                     <label>TÊN CỦA BẠN<span class="required">*</span></label>
                                     <input type="text" placeholder="" th:field="*{nameUserOrder}" >
+                                    <div th:if="${#fields.hasErrors('nameUserOrder')}" th:errors="*{nameUserOrder}" class="checkerrors"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="checkout-form-list">
                                     <label>ĐỊA CHỈ <span class="required">*</span></label>
                                     <input type="text"  th:field="*{addressOrder}" />
+                                    <div th:if="${#fields.hasErrors('addressOrder')}" th:errors="*{addressOrder}" class="checkerrors"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
                                     <label>ĐIỆN THOẠI<span class="required">*</span></label>
                                     <input type="text" th:field="*{phoneNumber}" />
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="checkout-form-list create-acc">
-                                    <input id="cbox" type="checkbox" />
-                                    <label>Tôi đã đọc và đồng ý điều khoản trên</label>
+                                    <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="checkerrors"></div>
+
                                 </div>
                             </div>
                         </div>
                         <div class="different-address">
                             <div class="order-notes">
                                 <div class="checkout-form-list mrg-nn">
-                                    <label>GHI CHÚ CHO ĐƠN HÀNG</label>
+                                    <label>GHI CHÚ CHO ĐƠN HÀNG (KHÔNG BẮT BUỘC)</label>
                                     <textarea id="checkout-mess" cols="30" rows="10" th:field="*{noteOrder}"  ></textarea>
                                 </div>
                             </div>
@@ -120,34 +118,41 @@
                             <thead>
                             <tr>
                                 <th class="product-name">Sản phẩm</th>
+                                <th class="product-name">Số lượng</th>
                                 <th class="product-total">Thành tiền</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="cart_item" th:each="checkout : ${session.cart.itemDTOS}">
-                                <td class="product-name" th:text="${checkout.productDTO.name}">
-                                    Vestibulum suscipit
+                                <td class="product-name">
+                                    <img th:src="@{'/images/'+${checkout.productDTO.imageUrl}}" width="100px" height="80px">
+                                    <p th:text="${checkout.productDTO.name}"></p>
+                                </td>
+                                <td class="product-name">
                                     <strong class="product-quantity" th:text="${checkout.number}"> × 1</strong>
                                 </td>
                                 <td class="product-total">
-                                    <span class="amount" th:text="${checkout.productDTO.price * checkout.number}">£165.00</span> ₫
+                                    <span class="amount" th:text="${#numbers.formatDecimal(checkout.productDTO.price,0,'POINT',0,'DEFAULT')} * ${checkout.number}">£165.00</span> ₫
                                 </td>
                             </tr>
                             </tbody>
                             <tfoot>
                             <tr style="color: black ">
                                 <th>Phí vat (10%)</th>
-                                <td><span class="amount" th:text="${VAT}" >10000₫</span> ₫
+                                <th></th>
+                                <td><span class="amount" th:text="${#numbers.formatDecimal(VAT,0,'POINT',0,'DEFAULT')}" >10000₫</span> ₫
                                 </td>
                             </tr>
                             <tr style="color: black ">
                                 <th>Phí ship</th>
-                                <td><span class="amount" th:text="${shiping}" >£215.00</span> ₫
+                                <th></th>
+                                <td><span class="amount" th:text="${#numbers.formatDecimal(shiping,0,'POINT',0,'DEFAULT')}" >10000₫</span> ₫
                                 </td>
                             </tr>
                             <tr style="color: black ">
                                 <th>Tổng đơn hàng</th>
-                                <td><span class="amount" th:text="${totalOrder}" >£215.00</span> ₫
+                                <th></th>
+                                <td><span class="amount" th:text="${#numbers.formatDecimal(totalOrder,0,'POINT',0,'DEFAULT')}" >10000₫</span> ₫
                                 </td>
                             </tr>
                             </tfoot>

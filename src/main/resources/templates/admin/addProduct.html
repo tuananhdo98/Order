@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
+      data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
 <nav th:replace="/moon/web/admin/nav :: nav"></nav>
 <nav th:replace="/moon/web/admin/menu :: menu"></nav>
-<div class="app-content content" >
+<div class="app-content content">
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
@@ -19,50 +20,48 @@
             </div>
         </div>
 
-                    <div class="col-xl-6 col-md-12" >
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body" >
-                                    <h4 class="card-title">Thêm sản phẩm</h4>
+        <div class="col-xl-6 col-md-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h4 class="card-title">Thêm sản phẩm</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" th:action="@{/save}" method="post" th:object="${product}"
+                              enctype="multipart/form-data">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="sr-only">First Name</label>
+                                    <input type="text" id="donationinput1" class="form-control" placeholder="Tên"
+                                           th:field="*{name}">
                                 </div>
-                                <div class="card-body">
-                                    <form class="form" th:action="@{/save}" method="post" th:object="${product}" enctype="multipart/form-data">
-                                        <div class="form-body">
-                                            <div class="form-group">
-                                                <label class="sr-only">First Name</label>
-                                                <input type="text" id="donationinput1" class="form-control" placeholder="Tên" th:field="*{name}">
-<!--                                                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="sr-only">Price</label>
-                                                <input type="text" class="form-control" placeholder="Giá"  th:field="*{price}">
-<!--                                                <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>-->
+                                <div class="form-group">
+                                    <label class="sr-only">Price</label>
+                                    <input type="text" class="form-control" placeholder="Giá" th:field="*{price}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">E-mail</label>
+                                    <input type="text" class="form-control" placeholder="Mô tả"
+                                           th:field="*{desciption}">
+                                </div>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label  class="sr-only">E-mail</label>
-                                                <input type="text"  class="form-control" placeholder="Mô tả" th:field="*{desciption}">
-<!--                                                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>-->
 
-                                            </div>
+                                <div class="form-group">
+                                    <label class="sr-only">File</label>
+                                    <input type="file" class="form-control" th:field="*{file}">
+                                </div>
 
-                                            <div class="form-group">
-                                                <label class="sr-only">File</label>
-                                                <input type="file" class="form-control" th:field="*{file}">
-<!--                                                <p th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></p>-->
-                                            </div>
 
-                                        </div>
-                                        <div class="form-actions center">
-                                            <button type="submit" class="btn btn-outline-primary">Thêm</button>
-                                        </div>
-                                    </form>
+                                <div class="form-actions center">
+                                    <button type="submit" class="btn btn-outline-primary">Thêm</button>
                                 </div>
                             </div>
-
-                        </div>
+                        </form>
                     </div>
-            </section>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 

@@ -15,13 +15,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().
                 authorizeRequests()
-                .antMatchers("/admin-home/**").hasAnyAuthority("ADMIN","ASSISTANT")
+//                .antMatchers("/admin-home/**").hasAnyAuthority("ADMIN","ASSISTANT")
+                .antMatchers("/admin-home/**").hasAuthority("ADMIN")
+                .antMatchers("/admin-user/**").hasAuthority("ADMIN")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
@@ -48,17 +50,17 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 //    private BeforeAuthenticationFilter beforeAuthenticationFilter;
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         return new UserDetailsServiceImpl();
     }
 
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         authenticationProvider.setUserDetailsService(userDetailsService());

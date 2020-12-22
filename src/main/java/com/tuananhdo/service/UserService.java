@@ -10,11 +10,9 @@ public interface UserService {
 
     List<User> listUserAll();
 
-    User getUserByEmail(String email);
-
     void deleteUser(long id);
 
-    void saveUser(User user);
+    User saveUser(User user);
 
     User getUserById(long id);
 

@@ -2,8 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
->
-
 <head th:replace="/layout/layout-admin :: head">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -18,10 +16,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Quản lý sản phẩm</h4>
+                        <h4 class="card-title">Quản lý người dùng</h4>
                         <br>
                         <div class="form-actions center" >
-                            <a th:href="@{/addProduct}"  class="btn btn-outline-primary">Thêm người dùng</a>
+                            <a th:href="@{/add-user}"  class="btn btn-outline-primary">Thêm người dùng</a>
                         </div>
                     </div>
                         <div class="table-responsive">
@@ -30,22 +28,23 @@
                                 <tr>
                                     <th scope="col">Mã khách hàng</th>
                                     <th scope="col">Email khách hàng</th>
-                                    <th scope="col">Tên khách hàng</th>
-                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Họ</th>
+                                    <th scope="col">Tên</th>
                                     <th scope="col">Vai trò</th>
                                     <th scope="col">Chức năng</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="user : ${userList}">
-                                    <td th:text="${user.id}">Id</td>
+                                <tr th:each="user : ${userList}" >
+                                    <td  th:text="${user.id}">Id</td>
                                     <td th:text="${user.email}">Name</td>
                                     <td th:text="${user.fisrtname}"></td>
-                                    <td th:text="${user.fisrtname}"></td>
-                                    <td></td>
+                                    <td th:text="${user.lastname}"></td>
+                                    <td>[[${user.roles}]]</td>
                                     <td>
+                                        <a th:href="@{'/edit-user/'+${user.id}}"><i style="color: black;"></i>Sửa</a>
+                                        <a th:href="@{'/admin/'+${user.id}}"><i style="color: black;"></i>Chi tiết</a>
                                         <a th:href="@{'/deleteUser/'+${user.id}}"><i  style="color: black;"></i>Xoá</a>
-                                        <a th:href="@{'/admin-userDetails/'+${user.id}}"><i style="color: black;"></i>Chi tiết</a>
                                     </td>
                                 </tr>
                                 </tbody>

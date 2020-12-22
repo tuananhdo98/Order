@@ -39,7 +39,7 @@
                                         <img th:src="@{'/images/'+${product.imageUrl}}" width="70" height="70">
                                     </td>
                                     <td th:text="${product.name}">Name</td>
-                                    <td th:text="${product.price} +  '₫'"></td>
+                                    <td th:text="${#numbers.formatDecimal(product.price,0,'POINT',0,'DEFAULT') +  '₫'}"></td>
                                     <td th:text="${product.desciption}">Name</td>
                                     <td>
                                         <a th:href="@{'/editProduct/'+${product.id}}"><i >Sửa</i></a>

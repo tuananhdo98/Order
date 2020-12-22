@@ -15,15 +15,31 @@
                         <div class="login-form" align="center">
                             <h4 style="color: #85bd02;">
                             </h4>
+                            <div th:if="${param.info}">
+                                <h1>K tim thay</h1>
+                            </div>
                             <div class="login-form">
-                                <form action="" method="get">
-                                    <input type="email" name="email" placeholder="Nhập email để tìm đơn hàng">
+                                <form th:action="@{/findOrderPhone}" method="get" >
+                                    <input type="text" name="phone" placeholder="Nhập số điện thoại của bạn để tìm đơn hàng" pattern="(+84|0)d{9,10}"
+                                    >
+<!--                                    <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>-->
                                     <div class="button-box">
                                         <button type="submit" class="default-btn floatright">Tìm đơn hàng</button>
                                     </div>
                                 </form>
+                            </br>
+                                <table class="table">
+                                    <tbody>
+                                    <tr th:each="findOrder,count : ${findOrders}" th:unless="${count.count>1}">
+                                        <td th:text="${findOrder.id}">Id</td>
+                                        <td th:text="${findOrder.nameUserOrder}"></td>
+                                        <td th:text="${findOrder.orderStatus.name}"></td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
                             </div><br>
-                            <h4 style="color: #85bd02;"><a th:href="@{/}">Tiếp tục order</a></h4>
+                            <h4 style="color: #85bd02;"><u><a th:href="@{/}">Tiếp tục mua hàng</a></u></h4>
                         </div>
 
             </div>

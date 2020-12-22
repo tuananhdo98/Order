@@ -36,13 +36,14 @@
                                 </td>
                                 <td class="product-name" th:text="${item.productDTO.name}"><a href="#">Wooden Furniture </a></td>
                                 <td class="product-subtotal">
-                                    <span th:text="${item.productDTO.price}">$165.00></span> ₫
+                                    <span th:text="${#numbers.formatDecimal(item.productDTO.price,0,'POINT',0,'DEFAULT') + '₫'}">$165.00></span>
                                 </td>
+<!--                                <td class="product-name" th:text="${item.productDTO.size}"><a href="#">Wooden Furniture </a></td>-->
                                 <td class="product-quantity">
                                     <input value="1" type="number" th:value="${item.number}">
                                 </td>
                                 <td class="product-subtotal">
-                                    <span th:text="${item.productDTO.price * item.number}">$165.00></span> ₫
+                                    <span th:text="${#numbers.formatDecimal(item.productDTO.price,0,'POINT',0,'DEFAULT')} * ${item.number} + '₫'"  ></span>
                                     </td>
                             </tr>
                             </tbody>
@@ -64,7 +65,7 @@
                             <div class="cart-page-total">
                                 <ul>
                                     <li>Tổng cộng
-                                        <span th:text="${totalItem} +  '₫'">100.00</span></li>
+                                        <span th:text="${#numbers.formatDecimal(totalItem,0,'POINT',0,'DEFAULT')} +  '₫'">100.00</span></li>
                                 </ul>
                                 <a th:href="@{/}">Tiếp tục đặt món</a>
                                 <a th:href="@{/checkout}">Thanh toán</a>

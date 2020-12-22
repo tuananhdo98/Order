@@ -1,9 +1,9 @@
 package com.tuananhdo.controller.web;
 
-import com.tuananhdo.entity.OrderProduct;
 import com.tuananhdo.entity.Product;
 import com.tuananhdo.model.OrderDTO;
 import com.tuananhdo.model.OrderItemDTO;
+import com.tuananhdo.model.SizeCake;
 import com.tuananhdo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,15 +22,16 @@ public class CartController {
     private ProductService productService;
 
     @GetMapping(value = "/cart")
-    public String cart(ModelMap map, HttpSession session){
-        map.put("totalItem",totalItem(session));
+    public String cart(ModelMap map, HttpSession session) {
+//        map.addAttribute("size", SizeCake.values());
+        map.put("totalItem", totalItem(session));
         return "web/cart";
     }
 
     @GetMapping(value = "/cart/{productId}")
-    public String productCart(@PathVariable(name = "productId") int productId, HttpSession session){
+    public String productCart(@PathVariable(name = "productId") int productId, HttpSession session) {
         Product product = productService.getProductById(productId);
-        if (session.getAttribute("cart")==null){
+        if (session.getAttribute("cart") == null) {
             OrderDTO orderDTO = new OrderDTO();
             OrderItemDTO orderItemDTO = new OrderItemDTO();
             orderItemDTO.setNumber((long) 1);
@@ -38,44 +39,36 @@ public class CartController {
             List<OrderItemDTO> orderItemDTOS = new ArrayList<>();
             orderItemDTOS.add(orderItemDTO);
             orderDTO.setItemDTOS(orderItemDTOS);
-            session.setAttribute("cart",orderDTO);
-        }else {
+            session.setAttribute("cart", orderDTO);
+        } else {
             OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
             List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
             boolean checkItem = false;
-            for (OrderItemDTO orderItemDTO : orderItemDTOS){
-                if (orderItemDTO.getProductDTO().getId() == productId){
-                    orderItemDTO.setNumber(orderItemDTO.getNumber()+1);
-                    checkItem=true;
+            for (OrderItemDTO orderItemDTO : orderItemDTOS) {
+                if (orderItemDTO.getProductDTO().getId() == productId) {
+                    orderItemDTO.setNumber(orderItemDTO.getNumber() + 1);
+                    checkItem = true;
                 }
             }
-            if (!checkItem){
+            if (!checkItem) {
                 OrderItemDTO orderItemDTO = new OrderItemDTO();
                 orderItemDTO.setNumber((long) 1);
                 orderItemDTO.setProductDTO(product);
                 orderItemDTOS.add(orderItemDTO);
-                session.setAttribute("cart",orderDTO);
+                session.setAttribute("cart", orderDTO);
             }
         }
         return "redirect:/cart";
     }
 
-    @GetMapping(value = "/viewCart")
-    public String removeCart(HttpSession session){
-        if (session.getAttribute("cart")!=null) {
-            OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
-            session.setAttribute("order", orderDTO);
-        }
-        return "web/cart";
-    }
 
     @GetMapping(value = "/removeCart/{productId}")
-    public String removeCart(@PathVariable(name = "productId") int productId, HttpSession session){
-        if (session.getAttribute("cart")!=null){
+    public String removeCart(@PathVariable(name = "productId") int productId, HttpSession session) {
+        if (session.getAttribute("cart") != null) {
             OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
             List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
             orderItemDTOS.removeIf(orderItemDTO -> orderItemDTO.getProductDTO().getId() == productId);
-            session.setAttribute("order",orderDTO);
+            session.setAttribute("order", orderDTO);
         }
         return "redirect:/cart";
     }
@@ -85,7 +78,7 @@ public class CartController {
         OrderDTO orderDTO = (OrderDTO) session.getAttribute("cart");
         List<OrderItemDTO> orderItemDTOS = orderDTO.getItemDTOS();
         long totalItem = 0;
-        for (OrderItemDTO orderItemDTO : orderItemDTOS){
+        for (OrderItemDTO orderItemDTO : orderItemDTOS) {
             totalItem += orderItemDTO.getNumber() * orderItemDTO.getProductDTO().getPrice();
         }
         return totalItem;

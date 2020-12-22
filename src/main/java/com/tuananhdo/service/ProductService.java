@@ -15,6 +15,4 @@ public interface ProductService {
     Product getProductById(long id);
 
     void deleteProduct(long id);
-
-//    Iterator<Product> saveAllProduct(Product product);
 }

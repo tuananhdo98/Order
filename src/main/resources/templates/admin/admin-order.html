@@ -1,12 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head th:replace="/layout/layout-admin :: head">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
       data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
-<nav th:replace="/moon/web/admin/nav :: nav"></nav>
+<nav th:fragment="nav"
+     class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
+    <div class="navbar-wrapper">
+        <div class="navbar-container content">
+            <div class="collapse navbar-collapse show" id="navbar-mobile">
+                <ul class="nav navbar-nav mr-auto float-left">
+                    <li class="nav-item d-block d-md-none"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
+                                                              href="#"><i class="ft-menu"></i></a></li>
+                    <li class="nav-item dropdown navbar-search"><a class="nav-link dropdown-toggle hide"
+                                                                   data-toggle="dropdown" href="#"><i
+                            class="ficon ft-search"></i>Tìm kiếm</a>
+                        <ul class="dropdown-menu">
+                            <li class="arrow_box">
+                                <form th:action="@{/admin-order}" method="get">
+                                    <div class="input-group search-box">
+                                        <input class="form-control" name="search" type="text" th:value="${search}"
+                                               placeholder="Tìm kiếm...">
+                                        <div class="form-control-position navbar-search-close"><i class="ft-x"> </i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav float-right">
+                    <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link"
+                                                                       id="dropdown-flag" href="#"
+                                                                       data-toggle="dropdown" aria-haspopup="true"
+                                                                       aria-expanded="false"><i
+                            class="flag-icon flag-icon-us"></i><span class="selected-language"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                            <div class="arrow_box"><a class="dropdown-item" href="#"><i
+                                    class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#"><i
+                                    class="flag-icon flag-icon-cn"></i> Chinese</a><a class="dropdown-item" href="#"><i
+                                    class="flag-icon flag-icon-ru"></i> Russian</a><a class="dropdown-item" href="#"><i
+                                    class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#"><i
+                                    class="flag-icon flag-icon-es"></i> Spanish</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav float-right">
+                    <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#"
+                                                                           data-toggle="dropdown"><i
+                            class="ficon ft-mail"> </i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="arrow_box_right"><a class="dropdown-item" href="#"><i class="ft-book"></i> Read
+                                Mail</a><a class="dropdown-item" href="#"><i class="ft-bookmark"></i> Read Later</a><a
+                                    class="dropdown-item" href="#"><i class="ft-check-square"></i> Mark all Read </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
+                                                                   href="#" data-toggle="dropdown">
+                        <span class="avatar avatar-online"><img th:src="@{/web/img/images/user.png}"
+                                                                alt="avatar"><i></i></span></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="arrow_box_right">
+                                <a class="dropdown-item" href="#">
+                                    <span class="avatar avatar-online"><img th:src="@{/web/img/images/user.png}"
+                                                                            alt="avatar">
+                              <span class="user-name text-bold-700 ml-1" sec:authorize="isAuthenticated()"
+                                    sec:authentication="principal.authorities">Tuan Anh</span></span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="ft-mail"></i> Hồ sơ</a><a
+                                    class="dropdown-item" th:href="@{/admin-order}"><i class="ft-check-square"></i> Đơn
+                                hàng</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/}"><i class="ft-power"></i> Thoát</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
 <nav th:replace="/moon/web/admin/menu :: menu"></nav>
 <div class="app-content content">
     <div class="content-wrapper">
@@ -16,50 +94,80 @@
                     <div class="card-header">
                         <h4 class="card-title">Danh sách đơn hàng</h4>
                         <br>
-                        <div class="form-actions center" >
+                        <div class="form-actions center">
                         </div>
                     </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Mã đơn hàng</th>
-                                    <th scope="col">Ngày đặt</th>
-                                    <th scope="col">Tên khách đặt</th>
-                                    <th scope="col">Sản phẩm</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Số lượng</th>
-                                    <th scope="col">Thành tiền</th>
-                                    <th scope="col">Tổng tiền</th>
-                                    <th scope="col">Chức năng</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="userOrder : ${userOrder}">
-                                    <td th:text="${userOrder.id}">Id</td>
-                                    <td th:text="${#calendars.format(userOrder.dateOrder, 'dd/MM/yyyy HH:mm')}">Name</td>
-                                    <td th:text="${userOrder.nameUserOrder}"></td>
-                                    <td>
-                                        <img th:src="@{'/images/'+${userOrder.getImg}}" width="100px" height="80px">
-                                    </td>
-                                    <td th:text="${userOrder.nameOrder}"></td>
-                                    <td th:text="${userOrder.totalNumber}"></td>
-                                    <td th:text="${userOrder.intoMoney} +  '₫'"></td>
-                                    <td th:text="${userOrder.totalOrder} + '₫'"></td>
-                                    <td>
-                                        <a th:href="@{'/admin-deleteOrder/'+${userOrder.id}}"><i  style="color: black;">Xoá đơn hàng</i></a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Mã đơn</th>
+                                <th scope="col"></th>
+                                <th scope="col">Ngày đặt</th>
+                                <th scope="col">Tên khách</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Đơn giá</th>
+                                <th scope="col">Tình trạng</th>
+                                <th scope="col">Chức năng</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="userOrder,count : ${userOrder}">
+                                <td th:text="${userOrder.id}">Id</td>
+                                <td>
+                                    <a class="link-detail" th:href="@{'/admin-order-details/'+${userOrder.id}}"><i style="color: black" class="pe-7s-look"></i></a>
+                                </td>
+                                <td  th:text="${#calendars.format(userOrder.dateOrder, 'dd/MM/yyyy HH:mm')}">Name</td>
+                                <td th:text="${userOrder.nameUserOrder}"></td>
+                                <td th:text="${userOrder.phoneNumber}"></td>
+                                <td>
+                                    <img th:src="@{'/images/'+${userOrder.getImg}}" width="100px" height="80px">
+                                </td>
+                                <td th:text="${userOrder.nameOrder}"></td>
+                                <td th:text="${userOrder.orderNumber}"></td>
+                                <td th:text="${#numbers.formatDecimal(userOrder.intoMoney,0,'POINT',0,'DEFAULT') +  '₫'}"></td>
+                                <td th:text="${userOrder.orderStatus.name}">
+                                </td>
+                                <td>
+                                    <a th:href="@{'/editOrder/'+${userOrder.id}}"><i style="color: black;">Sửa đơn hàng</i></a>
+                                    <a th:href="@{'/admin-deleteOrder/'+${userOrder.id}}"><i style="color: black;">Xoá
+                                        đơn hàng</i></a>
 
-                        </div>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!--</div>-->
+</div>
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg modal-lg" th:width="500px" th:height="500px">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".link-detail").on("click",function (e) {
+            e.preventDefault();
+            $("#myModal").modal("show").find(".modal-content").load($(this).attr("href"));
+        });
+    });
+</script>
 <footer th:replace="/moon/web/admin/footer :: footer"></footer>
 <div th:replace="/layout/layout-admin :: script"></div>
 

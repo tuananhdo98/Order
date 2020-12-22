@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="product-fruit-content text-center">
                                     <h4><a href="product-details.html" th:text="${products.name}" th:href="@{/product-detail{id}(id=${products.id})}">Pinapple Freash</a></h4>
-                                    <span th:text="${products.price}" th:href="@{/product-detail{id}(id=${products.id})}">$20.99</span> ₫
+                                    <span th:text="${#numbers.formatDecimal(products.price,0,'POINT',0,'DEFAULT') +  '₫'}" th:href="@{/product-detail{id}(id=${products.id})}">$20.99</span>
                                 </div>
                             </div>
                         </div>
