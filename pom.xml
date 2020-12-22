@@ -15,9 +15,6 @@
     <name>Order</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -99,8 +96,10 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
-                    <debug>true</debug>
-                    <debuglevel>lines,vars,source</debuglevel>
+                    <testSource>8</testSource>
+                    <testTarget>8</testTarget>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>
